@@ -1,22 +1,22 @@
-export default function reducer(state={data:[]},
+export default function reducer(state=[],
                                 action) {
 
     switch (action.type) {
         case "FETCH_DATA": {
-            return {data: action.payload}
+            return [...action.payload]
         }
 
         case "CHECK": {
-            let checked =state.data[action.payload].checked;
-            let newData={...state};
-            newData.data[action.payload].checked=!checked;
-            return {
-                ...newData
-            }
+            const updatedState = state.map(element => {
+                if (element.id === action.payload) {
+                    element.checked = !element.checked;
+                }
+                return element;
+            });
+            
+            return updatedState;
         }
         default:
-            break;
+            return state;
     }
-
-    return state
 }

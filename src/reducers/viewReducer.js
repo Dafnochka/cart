@@ -27,8 +27,6 @@ export default function reducer(state = {
             return {...state, view: action.payload, chartType: chartType};
         }
         default:
-            break;
+            return state;
     }
-
-    return state;
 }

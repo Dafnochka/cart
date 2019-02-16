@@ -9,7 +9,7 @@ import Layout from '../layout/Layout';
 import Main from '../main/Main';
 import Goods from '../goods/Goods';
 import ShoppingCart from '../shopping-cart/ShoppingCart';
-import PageNotFound from '../page-not-found/PageNotFound';
+// import PageNotFound from '../page-not-found/PageNotFound';
 
 class App extends Component {
     render() {

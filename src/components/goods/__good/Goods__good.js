@@ -5,27 +5,17 @@ import {faComment, faCheckSquare, faSquare} from '@fortawesome/free-solid-svg-ic
 import {connect} from 'react-redux';
 
 class Goods__good extends React.Component {
-constructor(props){
-    super(props);
-    this.state={checked: false}
-}
-    check(id) {
-        this.props.check(id);
-        // this.props.dispatch(check(id));
-        this.setState({
-            checked:!this.state.checked
-        })
-    }
+
     componentDidMount(){
-        if(this.props.store){
-            this.setState({
-                checked:this.props.store[this.props.idField-1].checked
-            })
-        }
+        // if(this.props.store){
+        //     this.setState({
+        //         checked:this.props.store[this.props.idField-1].checked
+        //     })
+        // }
     }
 
     render() {
-        let result = [];
+        let results = [];
         let data = {...this.props};
         let segment = '';
         for (let i = 0; i < this.props.priceSegment; i++) {
@@ -40,27 +30,27 @@ constructor(props){
 
 
 
-        if (this.state.checked) {
-            data.checked = <FontAwesomeIcon onClick={()=>this.check(this.props.idField-1)} icon={faCheckSquare}/>;
+        if (this.props.checked) {
+            data.checked = <FontAwesomeIcon onClick={this.props.check} icon={faCheckSquare}/>;
         } else {
-            data.checked = <FontAwesomeIcon onClick={()=>this.check(this.props.idField-1)} icon={faSquare}/>;
+            data.checked = <FontAwesomeIcon onClick={this.props.check} icon={faSquare}/>;
         }
         data.store=null;
 
         for (let key in data) {
-            result.push(<div key={key} className={key}>{data[key]}</div>)
+            results.push(<li key={key} className={key}>{data[key]}</li>)
         }
 
         return (
-            <li className='Goods__good'>
-                {result}
-            </li>
+            <ul className='Goods__good'>
+                {results}
+            </ul>
         );
     }
 }
 function mapStateToProps(state) {
     return {
-        store: state.data.data,
+        store: state.data,
     };
 }
 
