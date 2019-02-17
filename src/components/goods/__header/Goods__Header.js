@@ -5,13 +5,13 @@ export default class Goods__Header extends React.Component {
     render() {
         let result = [];
         for (let key in this.props) {
-            result.push(<div  key={key} className={key}>{this.props[key]}</div>)
+            result.push(<li  key={key} className={key}>{this.props[key]}</li>)
         }
 
         return (
-            <li className='Goods__Header'>
+            <ul className='Goods__Header'>
                 {result}
-            </li>
+            </ul>
         );
     }
 }

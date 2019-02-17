@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {getData} from '../../actions/dataActions';
 import {setView} from '../../actions/viewActions';
 import './Lyout.css';
-import Layout__Menu from './__menu/Layout__Menu';
-import Layout__MenuItem from './__menu-item/Layout__MenuItem';
+import LayoutMenu from './__menu/Layout__Menu';
+import LayoutMenuItem from './__menu-item/Layout__MenuItem';
 
 class Layout extends React.Component {
 
@@ -25,17 +25,17 @@ class Layout extends React.Component {
 
         return <div>
 
-            <Layout__Menu brand={this.brand}>
-                <Layout__MenuItem href="/" active={this.isActive('/')}>
+            <LayoutMenu brand={this.brand}>
+                <LayoutMenuItem href="/" active={this.isActive('/')}>
                     Главная
-                </Layout__MenuItem>
-                <Layout__MenuItem href="/goods" active={this.isActive('/goods')}>
+                </LayoutMenuItem>
+                <LayoutMenuItem href="/goods" active={this.isActive('/goods')}>
                     Товары
-                </Layout__MenuItem>
-                <Layout__MenuItem href="/shopping_cart" active={this.isActive('/shopping_cart')}>
+                </LayoutMenuItem>
+                <LayoutMenuItem href="/shopping_cart" active={this.isActive('/shopping_cart')}>
                     Корзина
-                </Layout__MenuItem>
-            </Layout__Menu>
+                </LayoutMenuItem>
+            </LayoutMenu>
                         {this.props.children}
 
             <footer className="card-footer">

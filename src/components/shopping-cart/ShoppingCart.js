@@ -22,10 +22,7 @@ class ShoppingCart extends React.Component {
                 unit = ' товар:';
                 break;
             }
-            case 2: {
-                unit = ' товара:';
-                break;
-            }
+            case 2:
             case 3: {
                 unit = ' товара:';
                 break;
@@ -66,7 +63,7 @@ class ShoppingCart extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        data: state.data.data,
+        data: state.data,
     };
 }
 
